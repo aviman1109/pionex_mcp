@@ -21,11 +21,13 @@ SERVER_INSTRUCTIONS = """
 This MCP server exposes Pionex trading data and order management via the Pionex API.
 
 Available capabilities:
-- Market data: list_symbols, get_ticker, get_orderbook, get_klines, get_recent_trades
-- Account: get_balance, get_open_orders, get_order_history, get_order, get_my_trades
-- Trading (write): create_order, cancel_order, batch_cancel_orders
+- Market data: list_symbols, get_ticker, get_book_ticker, get_orderbook, get_klines, get_recent_trades
+- Account: get_balance, get_open_orders, get_order_history, get_order, get_order_by_client_order_id, get_my_trades, get_fills, get_fills_by_order_id
+- Trading (write): create_order, create_mass_order, cancel_order, batch_cancel_orders, cancel_all_open_orders
 
-⚠️ Trading tools execute real orders. Always confirm details with the user before calling create_order or cancel_order.
+PERP support: list_symbols(type='PERP'), get_ticker(type='PERP'), get_book_ticker(type='PERP') for perpetual futures market data.
+
+⚠️ Trading tools execute real orders. Always confirm details with the user before calling any write tool.
 """.strip()
 
 
